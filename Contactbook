@@ -1,0 +1,68 @@
+class ContactBook:
+    def __init__(self) -> None:
+        self.dict={}
+    def addContact(self,phone,name,email,address):
+        self.dict[phone]={'Name':name,'Email':email,'Address':address}
+    def display(self):
+        print(self.dict)
+    def search(self,phone):
+        if phone in self.dict:
+            print('Name is:')
+            print(self.dict[phone]['Name'])
+            print('Email is:')
+            print(self.dict[phone]['Email'])
+            print('Address is:')
+            print(self.dict[phone]['Address'])
+        else:
+            print("Number does not exist in ContactBook")
+    def delete(self,phone):
+        del(self.dict[phone])
+    def updateContact(self,phone,name,email,address):
+        self.dict[phone]={'Name':name,'Phone':phone,'Email':email,'Address':address}
+
+cb=ContactBook()
+
+
+while(True):
+    print("Welcome to ContactBook!")
+    print("""Please select an operation:
+      1)Add a Contact
+      2)Display the list of contacts
+      3)Search the ContactBook
+      4)Delete a contact from ContactBook
+      5)Update a contact
+      6)Exit
+    """)
+    n=int(input())
+    match n:
+        case 1:
+            phone=input("Enter Phone Number:\n")
+            name=input("Enter Name:\n")
+            email=input("Enter Email:\n")
+            address=input("Enter Address:\n")
+            cb.addContact(phone,name,email,address)
+        case 2:
+            cb.display()
+        case 3:
+            phone=input("Enter Phone number to search:\n")
+            cb.search(phone)
+        case 4:
+            print("Enter phone number to be deleted:")
+            phone=input()
+            cb.delete(phone)
+            print("Successfully deleted")
+        case 5:
+            phone=input("Enter Phone Number of the contact to be updated:\n")
+            name=input("Enter new Name:\n")
+            email=input("Enter new Email:\n")
+            address=input("Enter new Address:\n")
+            cb.updateContact(phone,name,email,address)
+        case 6:
+            print("Exiting ContactBook")
+            exit()
+        
+
+        
+        
+
+
