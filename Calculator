@@ -1,0 +1,32 @@
+print("Please enter 2 numbers:")
+n,k=map(int,input().split())
+
+print("""Please choose operation to perform
+      1)Add
+      2)Subtract
+      3)Multiply
+      4)Divide
+      5)Modulus
+      """)
+op=int(input())
+
+    
+match op:
+    case 1:
+        print("Addition of the 2 numbers is:",n+k)
+    case 2:
+        print("Subtraction of the 2 numbers is:",n-k)
+    case 3:
+        print("Multiplication of the 2 numbers is:",n*k)
+    case 4:
+        if k!=0:
+            print("Division of the 2 numbers is:",n/k)
+        else:
+            print("Division by 0 is not allowed")
+    case 5:
+        if k!=0:
+            print("Modulus of the 2 numbers is:",n%k)
+        else:
+            print("Modulus by 0 is not allowed")
+    
+    
